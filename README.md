@@ -198,10 +198,10 @@ return array(
     'zf_snap_jquery' => array(
         'libraries' => array(
             'jquery' => array(
-                'enable' => false,
+                'enabled' => false,
             ),
             'jquery-ui' => array(
-                'enable' => false,
+                'enabled' => false,
             ),
         ),
     ),
