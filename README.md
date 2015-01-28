@@ -210,6 +210,56 @@ return array(
 
 To see what you can customize see source of [module.config.php](config/module.config.php).
 
+Autocomplete
+============
+
+Source
+------
+
+Remote:
+```
+$this->add(array(
+    'name' => 'autocomplete',
+    'type' => 'Autocomplete',
+    'attributes' => array(
+        'jquery' => array(
+            'source' => 'data-source.php'
+        ),
+    )
+));
+```
+
+Local:
+```
+$this->add(array(
+    'name' => 'autocomplete',
+    'type' => 'Autocomplete',
+    'attributes' => array(
+        'jquery' => array(
+            'source' => array(
+                array('label' => 'foo', 'value' => '1'),
+                array('label' => 'bar', 'value' => '2'),
+                array('label' => 'baz', 'value' => '3')
+            )
+        ),
+    ),
+));
+```
+
+Callbacks:
+```
+$this->add(array(
+    'name' => 'autocomplete',
+    'type' => 'Autocomplete',
+    'attributes' => array(
+        'jquery' => array(
+            'source' => 'data-source.php',
+            'select' => new \Zend\Json\Expr('function( event, ui ) { $( this ).val( ui.item.label ); return false; }'),
+        ),
+    )
+));
+```
+
 How to install?
 ===============
 Via [composer.json](https://getcomposer.org/)
